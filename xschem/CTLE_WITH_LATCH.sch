@@ -75,18 +75,10 @@ N 920 80 920 130 {
 lab=Vdd}
 N 860 100 860 140 {
 lab=Vss}
-N 1310 -160 1370 -160 {
-lab=Vdd}
-N 1370 -160 1370 -110 {
-lab=Vdd}
-N 1310 -140 1310 -100 {
-lab=Vss}
-N 870 -200 1010 -200 {
-lab=#net3}
 N 880 -180 1010 -180 {
-lab=#net4}
+lab=#net3}
 N 870 -180 880 -180 {
-lab=#net4}
+lab=#net3}
 N 490 -160 570 -160 {
 lab=clk-}
 N 490 -140 570 -140 {
@@ -119,55 +111,47 @@ N 930 -160 930 -110 {
 lab=Vdd}
 N 870 -140 870 -100 {
 lab=Vss}
-N 1310 -200 1420 -200 {
-lab=#net5}
-N 1310 -180 1390 -180 {
-lab=#net6}
-N 1390 -220 1390 -180 {
-lab=#net6}
-N 1390 -220 1420 -220 {
-lab=#net6}
 N 950 20 950 60 {
-lab=#net7}
+lab=#net4}
 N 950 20 980 20 {
-lab=#net7}
+lab=#net4}
 N 860 40 980 40 {
-lab=#net8}
+lab=v1t}
 N 860 60 950 60 {
-lab=#net7}
+lab=#net4}
 N 1280 20 1340 20 {
 lab=Vdd}
 N 1340 20 1340 70 {
 lab=Vdd}
 N 1280 40 1280 80 {
 lab=Vss}
-N 1720 -220 1780 -220 {
+N 1410 -220 1470 -220 {
 lab=Vdd}
-N 1780 -220 1780 -170 {
+N 1470 -220 1470 -170 {
 lab=Vdd}
-N 1720 -200 1720 -160 {
+N 1410 -200 1410 -160 {
 lab=Vss}
-N 1720 -240 1820 -240 {
-lab=#net9}
+N 1410 -240 1510 -240 {
+lab=#net5}
 N 1280 -0 1380 0 {
-lab=#net10}
+lab=#net6}
 N 1740 40 1820 40 {
 lab=vout1}
-N 2180 -200 2220 -200 {
+N 1870 -200 1910 -200 {
 lab=vout0}
 N 1820 20 1820 40 {
 lab=vout1}
-N 2220 -200 2300 -200 {
+N 1910 -200 1990 -200 {
 lab=vout0}
-N 2300 -220 2300 -200 {
+N 1990 -220 1990 -200 {
 lab=vout0}
-N 2130 -270 2130 -240 {
+N 1820 -270 1820 -240 {
 lab=Vdd}
-N 2120 -240 2130 -240 {
+N 1810 -240 1820 -240 {
 lab=Vdd}
-N 2120 -220 2160 -220 {
+N 1810 -220 1850 -220 {
 lab=Vss}
-N 2160 -270 2160 -220 {
+N 1850 -270 1850 -220 {
 lab=Vss}
 N 1690 -30 1690 0 {
 lab=Vdd}
@@ -177,6 +161,16 @@ N 1680 20 1720 20 {
 lab=Vss}
 N 1720 -30 1720 20 {
 lab=Vss}
+N 930 -280 930 -200 {
+lab=v0t}
+N 890 0 890 40 {
+lab=v1t}
+N 1010 -220 1110 -220 {
+lab=#net3}
+N 1010 -220 1010 -180 {
+lab=#net3}
+N 870 -200 1110 -200 {
+lab=v0t}
 C {devices/vsource.sym} -950 -20 0 0 {name=V3 value=1.8 savecurrent=false}
 C {devices/gnd.sym} -950 10 0 0 {name=l3 lab=GND}
 C {devices/lab_wire.sym} -950 -50 0 0 {name=p5 sig_type=std_logic lab=Vdd
@@ -221,12 +215,12 @@ value="
   write CTLE_WITH_LATCH.raw
 .endc
 "}
-C {devices/vsource.sym} -770 -110 0 0 {name=V2 value="PWL(0 1.8 0.5n 1.8 2.5n 1.8 2.55n 0 3.5n 0 3.55n 1.8 4.5n 1.8 4.55n 0 6.5n 0 6.55n 1.8 8n 1.8)" savecurrent=false
+C {devices/vsource.sym} -770 -110 0 0 {name=V2 value="PWL(0 1.8 2n 1.8 2.05n 0 3n 0 3.05n 1.8 4n 1.8 4.05n 0 6n 0 6.05n 1.8 8n 1.8)" savecurrent=false
 lab=vin+}
 C {devices/gnd.sym} -770 -80 0 0 {name=l2 lab=GND}
 C {devices/lab_wire.sym} -770 -240 0 0 {name=p3 sig_type=std_logic lab=vin+
 }
-C {devices/vsource.sym} -660 60 0 0 {name=V4 value="PWL(0 0 0.5n 0 2.5n 0 2.55n 1.8 3.5n 1.8 3.55n 0 4.5n 0 4.55n 1.8 6.5n 1.8 6.55n 0 8n 0)" savecurrent=false}
+C {devices/vsource.sym} -660 60 0 0 {name=V4 value="PWL(0 0 2n 0 2.05n 1.8 3n 1.8 3.05n 0 4n 0 4.05n 1.8 6n 1.8 6.05n 0 8n 0)" savecurrent=false}
 C {devices/gnd.sym} -660 90 0 0 {name=l4 lab=GND}
 C {devices/lab_wire.sym} -660 -30 0 0 {name=p6 sig_type=std_logic lab=vin-
 }
@@ -290,22 +284,11 @@ C {devices/lab_wire.sym} 920 130 0 0 {name=p27 sig_type=std_logic lab=Vdd
 }
 C {devices/lab_wire.sym} 860 140 0 0 {name=p30 sig_type=std_logic lab=Vss
 }
-C {d_latch.sym} 1160 -160 0 0 {name=x20}
-C {devices/lab_wire.sym} 1370 -110 0 0 {name=p63 sig_type=std_logic lab=Vdd
-}
-C {devices/lab_wire.sym} 1310 -100 0 0 {name=p64 sig_type=std_logic lab=Vss
-}
 C {devices/lab_wire.sym} 560 120 0 0 {name=p81 sig_type=std_logic lab=vbias
-}
-C {devices/lab_wire.sym} 1010 -120 0 0 {name=p97 sig_type=std_logic lab=vbias
 }
 C {devices/lab_wire.sym} 510 80 0 0 {name=p98 sig_type=std_logic lab=clk+
 }
 C {devices/lab_wire.sym} 520 100 0 0 {name=p99 sig_type=std_logic lab=clk-
-}
-C {devices/lab_wire.sym} 1010 -140 0 0 {name=p100 sig_type=std_logic lab=clk-
-}
-C {devices/lab_wire.sym} 1010 -160 0 0 {name=p101 sig_type=std_logic lab=clk+
 }
 C {devices/lab_wire.sym} 570 -120 0 0 {name=p16 sig_type=std_logic lab=vbias
 }
@@ -314,21 +297,21 @@ C {devices/lab_wire.sym} 930 -110 0 0 {name=p19 sig_type=std_logic lab=Vdd
 }
 C {devices/lab_wire.sym} 870 -100 0 0 {name=p20 sig_type=std_logic lab=Vss
 }
-C {D2S_amp.sym} 1570 -220 0 0 {name=x2}
+C {D2S_amp.sym} 1260 -220 0 0 {name=x2}
 C {D2S_amp.sym} 1130 20 0 0 {name=x5}
 C {devices/lab_wire.sym} 980 0 0 0 {name=p22 sig_type=std_logic lab=vbias
 }
-C {devices/lab_wire.sym} 1420 -240 0 0 {name=p25 sig_type=std_logic lab=vbias
+C {devices/lab_wire.sym} 1110 -240 0 0 {name=p25 sig_type=std_logic lab=vbias
 }
 C {devices/lab_wire.sym} 1340 70 0 0 {name=p26 sig_type=std_logic lab=Vdd
 }
 C {devices/lab_wire.sym} 1280 80 0 0 {name=p31 sig_type=std_logic lab=Vss
 }
-C {devices/lab_wire.sym} 1780 -170 0 0 {name=p33 sig_type=std_logic lab=Vdd
+C {devices/lab_wire.sym} 1470 -170 0 0 {name=p33 sig_type=std_logic lab=Vdd
 }
-C {devices/lab_wire.sym} 1720 -160 0 0 {name=p34 sig_type=std_logic lab=Vss
+C {devices/lab_wire.sym} 1410 -160 0 0 {name=p34 sig_type=std_logic lab=Vss
 }
-C {devices/res.sym} 2150 -200 3 1 {name=R3
+C {devices/res.sym} 1840 -200 3 1 {name=R3
 value=500
 footprint=1206
 device=resistor
@@ -338,15 +321,19 @@ value=500
 footprint=1206
 device=resistor
 m=1}
-C {devices/lab_wire.sym} 2300 -220 0 0 {name=p35 sig_type=std_logic lab=vout0
+C {devices/lab_wire.sym} 1990 -220 0 0 {name=p35 sig_type=std_logic lab=vout0
 }
-C {inverter_chain.sym} 1970 -220 0 0 {name=x6}
+C {inverter_chain.sym} 1660 -220 0 0 {name=x6}
 C {inverter_chain.sym} 1530 20 0 0 {name=x7}
-C {devices/lab_wire.sym} 2130 -270 0 0 {name=p32 sig_type=std_logic lab=Vdd
+C {devices/lab_wire.sym} 1820 -270 0 0 {name=p32 sig_type=std_logic lab=Vdd
 }
-C {devices/lab_wire.sym} 2160 -270 0 0 {name=p36 sig_type=std_logic lab=Vss
+C {devices/lab_wire.sym} 1850 -270 0 0 {name=p36 sig_type=std_logic lab=Vss
 }
 C {devices/lab_wire.sym} 1690 -30 0 0 {name=p37 sig_type=std_logic lab=Vdd
 }
 C {devices/lab_wire.sym} 1720 -30 0 0 {name=p38 sig_type=std_logic lab=Vss
+}
+C {devices/lab_wire.sym} 930 -280 0 0 {name=p39 sig_type=std_logic lab=v0t
+}
+C {devices/lab_wire.sym} 890 0 0 0 {name=p40 sig_type=std_logic lab=v1t
 }
