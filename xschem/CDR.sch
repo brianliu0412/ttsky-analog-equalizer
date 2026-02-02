@@ -190,13 +190,13 @@ lab=Vss}
 N 1470 150 1470 170 {
 lab=Vss}
 N 1660 -180 1660 -150 {
-lab=vbias}
+lab=bias_p}
 N 1660 -150 1740 -150 {
-lab=vbias}
+lab=bias_p}
 N 1690 80 1740 80 {
-lab=vbias}
+lab=#net7}
 N 1740 50 1740 80 {
-lab=vbias}
+lab=#net7}
 N 2660 410 2720 410 {
 lab=Vdd}
 N 2720 410 2720 460 {
@@ -233,6 +233,20 @@ N 1920 -50 2030 -50 {
 lab=#net1}
 N 2030 -50 2100 -50 {
 lab=#net1}
+N 1300 -630 1300 -610 {
+lab=Vdd}
+N 1300 -630 1320 -630 {
+lab=Vdd}
+N 1320 -630 1320 -610 {
+lab=Vdd}
+N 1310 -640 1310 -630 {
+lab=Vdd}
+N 1300 -330 1300 -310 {
+lab=Vss}
+N 1300 -310 1320 -310 {
+lab=Vss}
+N 1320 -330 1320 -310 {
+lab=Vss}
 C {tiny_pll_vco.sym} 2200 430 0 0 {name=x1}
 C {devices/lab_wire.sym} 2080 490 0 0 {name=p2 sig_type=std_logic lab=Vss
 }
@@ -367,10 +381,6 @@ C {devices/lab_wire.sym} 1780 170 0 0 {name=p35 sig_type=std_logic lab=Vss
 }
 C {devices/lab_wire.sym} 1450 170 0 0 {name=p36 sig_type=std_logic lab=Vss
 }
-C {devices/lab_wire.sym} 1660 -180 0 0 {name=p37 sig_type=std_logic lab=vbias
-}
-C {devices/lab_wire.sym} 1690 80 0 0 {name=p38 sig_type=std_logic lab=vbias
-}
 C {devices/lab_wire.sym} 2530 500 0 0 {name=p17 sig_type=std_logic lab=vout
 }
 C {devices/lab_wire.sym} 2720 460 0 0 {name=p7 sig_type=std_logic lab=Vdd
@@ -392,15 +402,27 @@ value=100000
 footprint=1206
 device=resistor
 m=1}
-C {devices/lab_wire.sym} 2070 330 0 0 {name=p42 sig_type=std_logic lab=Vdd
+C {devices/lab_wire.sym} 2060 330 0 0 {name=p42 sig_type=std_logic lab=Vdd
 }
 C {devices/res.sym} 2130 -50 3 0 {name=R5
 value=1000
 footprint=1206
 device=resistor
 m=1}
-C {devices/res.sym} 2070 360 0 1 {name=R6
-value=100000
-footprint=1206
-device=resistor
-m=1}
+C {tiny_pll_bias_gen.sym} 1220 -450 0 0 {name=x8}
+C {devices/lab_wire.sym} 1310 -640 0 0 {name=p43 sig_type=std_logic lab=Vdd
+}
+C {devices/lab_wire.sym} 1300 -310 0 0 {name=p44 sig_type=std_logic lab=Vss
+}
+C {devices/lab_wire.sym} 1100 -450 0 0 {name=p45 sig_type=std_logic lab=Vdd
+}
+C {devices/lab_wire.sym} 1100 -430 0 0 {name=p46 sig_type=std_logic lab=Vss
+}
+C {devices/lab_wire.sym} 1360 -470 0 1 {name=p47 sig_type=std_logic lab=bias_p
+}
+C {devices/lab_wire.sym} 1360 -410 0 1 {name=p48 sig_type=std_logic lab=bias_n
+}
+C {devices/lab_wire.sym} 1660 -180 0 1 {name=p49 sig_type=std_logic lab=bias_p
+}
+C {devices/lab_wire.sym} 1690 80 0 0 {name=p37 sig_type=std_logic lab=bias_n
+}
