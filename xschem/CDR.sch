@@ -149,10 +149,8 @@ N 2170 120 2200 120 {
 lab=Vss}
 N 2200 70 2200 120 {
 lab=Vss}
-N 1920 -50 2200 -50 {
-lab=#net1}
 N 2200 -50 2200 10 {
-lab=#net1}
+lab=#net6}
 N 2030 -50 2030 390 {
 lab=#net1}
 N 2310 410 2310 610 {
@@ -229,6 +227,12 @@ N 2280 410 2310 410 {
 lab=vout_vco}
 N 2310 310 2310 410 {
 lab=vout_vco}
+N 2160 -50 2200 -50 {
+lab=#net6}
+N 1920 -50 2030 -50 {
+lab=#net1}
+N 2030 -50 2100 -50 {
+lab=#net1}
 C {tiny_pll_vco.sym} 2200 430 0 0 {name=x1}
 C {devices/lab_wire.sym} 2080 490 0 0 {name=p2 sig_type=std_logic lab=Vss
 }
@@ -281,7 +285,7 @@ value="
 .options method=gear reltol=0.001 abstol=1e-12
 .op
 .control
-  tran 10p 200n
+  tran 10p 50n
   write CDR.raw
 .endc
 "}
@@ -383,10 +387,20 @@ C {devices/lab_wire.sym} 2600 580 0 0 {name=p40 sig_type=std_logic lab=Vss
 }
 C {devices/lab_wire.sym} 2310 310 0 0 {name=p41 sig_type=std_logic lab=vout_vco
 }
-C {devices/res.sym} 2070 360 0 1 {name=R4
+C {devices/res.sym} 2060 360 0 1 {name=R4
 value=100000
 footprint=1206
 device=resistor
 m=1}
 C {devices/lab_wire.sym} 2070 330 0 0 {name=p42 sig_type=std_logic lab=Vdd
 }
+C {devices/res.sym} 2130 -50 3 0 {name=R5
+value=1000
+footprint=1206
+device=resistor
+m=1}
+C {devices/res.sym} 2070 360 0 1 {name=R6
+value=100000
+footprint=1206
+device=resistor
+m=1}
