@@ -1,0 +1,153 @@
+** sch_path: /home/ttuser/Documents/ttsky-analog-equalizer/xschem/CTLE_WITH_LATCH.sch
+**.subckt CTLE_WITH_LATCH
+V3 Vdd GND 1.8
+V1 Vss GND 0
+R1 vin+_bad vin+ 500 m=1
+R2 vin-_bad vin- 500 m=1
+C1 Vss vin+_bad 1p m=1
+C2 vin-_bad Vss 1p m=1
+V2 net1 GND PWL(0 1.8 2n 1.8 2.05n 0 3n 0 3.05n 1.8 4n 1.8 4.05n 0 6n 0 6.05n 1.8 8n 1.8)
+V4 net7 GND PWL(0 0 2n 0 2.05n 1.8 3n 1.8 3.05n 0 4n 0 4.05n 1.8 6n 1.8 6.05n 0 8n 0)
+V5 net2 GND 0.9
+V6 vin+ net1 TRNOISE(10m 50p 0 0)
+V7 vin- net7 TRNOISE(10m 50p 0 0)
+x1 vout+_temp vout-_temp vin+_bad vin-_bad Vdd Vss vbias CTLE
+R8 vbias net2 500 m=1
+C5 vbias Vss 1p m=1
+V8 clk- GND PULSE(1.8 0 0 20p 20p 0.98n 2n)
+V9 clk+ GND PULSE(0 1.8 0 20p 20p 0.98n 2n)
+x3 v1t net4 vout+_temp vout-_temp Vdd Vss clk+ clk- vbias d_latch
+x4 v0t net3 vout+_temp vout-_temp Vdd Vss clk- clk+ vbias d_latch
+x2 vbias net3 v0t net5 Vdd Vss D2S_amp
+x5 vbias net4 v1t net6 Vdd Vss D2S_amp
+R3 net8 vout0 500 m=1
+R4 net9 vout1 500 m=1
+x6 Vdd Vss net5 net8 inverter_chain
+x7 Vdd Vss net6 net9 inverter_chain
+**** begin user architecture code
+
+
+
+*.lib /home/ttuser/pdk/sky130A/libs.tech/ngspice/sky130.lib.spice tt
+.options method=gear reltol=0.001 abstol=1e-3
+.op
+.control
+  tran 10p 20n
+  write CTLE_WITH_LATCH.raw
+.endc
+
+
+
+
+** opencircuitdesign pdks install
+.lib /home/ttuser/pdk/sky130A/libs.tech/ngspice/sky130.lib.spice tt
+
+
+**** end user architecture code
+**.ends
+
+* expanding   symbol:  CTLE.sym # of pins=7
+** sym_path: /home/ttuser/Documents/ttsky-analog-equalizer/xschem/CTLE.sym
+** sch_path: /home/ttuser/Documents/ttsky-analog-equalizer/xschem/CTLE.sch
+.subckt CTLE vout+ vout- vin+ vin- VDD VSS vbias
+*.iopin VDD
+*.iopin VSS
+*.ipin vin+
+*.ipin vin-
+*.ipin vbias
+*.opin vout-
+*.opin vout+
+XM1 vout+ vin+ net1 VSS sky130_fd_pr__nfet_01v8 L=0.3 W=10 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+XM2 net3 vbias VSS VSS sky130_fd_pr__nfet_01v8 L=0.5 W=20 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+XM4 vout- vin- net2 VSS sky130_fd_pr__nfet_01v8 L=0.3 W=10 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+XR1 vout+ VDD VSS sky130_fd_pr__res_high_po W=1 L=16 mult=1 m=1
+XR2 vout- VDD VSS sky130_fd_pr__res_high_po W=1 L=16 mult=1 m=1
+XR3 net1 net3 VSS sky130_fd_pr__res_high_po W=1 L=0.69 mult=1 m=1
+XC2 net1 net3 sky130_fd_pr__cap_mim_m3_1 W=13 L=13 MF=1 m=1
+XR4 net2 net3 VSS sky130_fd_pr__res_high_po W=1 L=0.69 mult=1 m=1
+XC1 net2 net3 sky130_fd_pr__cap_mim_m3_1 W=13 L=13 MF=1 m=1
+.ends
+
+
+* expanding   symbol:  d_latch.sym # of pins=9
+** sym_path: /home/ttuser/Documents/ttsky-analog-equalizer/xschem/d_latch.sym
+** sch_path: /home/ttuser/Documents/ttsky-analog-equalizer/xschem/d_latch.sch
+.subckt d_latch vout+ vout- vin+ vin- VDD VSS clk+ clk- vbias
+*.iopin VDD
+*.iopin VSS
+*.ipin vin+
+*.ipin clk-
+*.ipin vbias
+*.opin vout+
+*.ipin clk+
+*.opin vout-
+*.ipin vin-
+XM1 vout- vin+ net1 VSS sky130_fd_pr__nfet_01v8 L=0.15 W=10 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+XM2 net2 vbias VSS VSS sky130_fd_pr__nfet_01v8 L=0.5 W=20 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+XM4 vout+ vin- net1 VSS sky130_fd_pr__nfet_01v8 L=0.15 W=10 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+XR1 vout- VDD VSS sky130_fd_pr__res_high_po W=1 L=4 mult=1 m=1
+XR2 vout+ VDD VSS sky130_fd_pr__res_high_po W=1 L=4 mult=1 m=1
+XM3 vout+ vout- net3 VSS sky130_fd_pr__nfet_01v8 L=0.15 W=10 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+XM5 vout- vout+ net3 VSS sky130_fd_pr__nfet_01v8 L=0.15 W=10 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+XM6 net1 clk+ net2 VSS sky130_fd_pr__nfet_01v8 L=0.15 W=10 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+XM7 net3 clk- net2 VSS sky130_fd_pr__nfet_01v8 L=0.15 W=10 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+.ends
+
+
+* expanding   symbol:  D2S_amp.sym # of pins=6
+** sym_path: /home/ttuser/Documents/ttsky-analog-equalizer/xschem/D2S_amp.sym
+** sch_path: /home/ttuser/Documents/ttsky-analog-equalizer/xschem/D2S_amp.sch
+.subckt D2S_amp vbias vin- vin+ final_out VDD VSS
+*.iopin VDD
+*.iopin VSS
+*.opin final_out
+*.ipin vin+
+*.ipin vin-
+*.ipin vbias
+XM1 net2 vin+ net1 VDD sky130_fd_pr__pfet_01v8 L=0.15 W=10 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+XM2 final_out vin- net1 VDD sky130_fd_pr__pfet_01v8 L=0.15 W=10 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+XM4 net2 net2 VSS VSS sky130_fd_pr__nfet_01v8 L=0.15 W=10 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+XM5 final_out net2 VSS VSS sky130_fd_pr__nfet_01v8 L=0.15 W=10 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+XM3 net1 vbias VDD VDD sky130_fd_pr__pfet_01v8 L=0.15 W=20 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+.ends
+
+
+* expanding   symbol:  inverter_chain.sym # of pins=4
+** sym_path: /home/ttuser/Documents/ttsky-analog-equalizer/xschem/inverter_chain.sym
+** sch_path: /home/ttuser/Documents/ttsky-analog-equalizer/xschem/inverter_chain.sch
+.subckt inverter_chain VDD VSS weak_in STRONG_OUT
+*.iopin VDD
+*.iopin VSS
+*.ipin weak_in
+*.opin STRONG_OUT
+XM1 net1 weak_in VDD VDD sky130_fd_pr__pfet_01v8 L=0.15 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+XM2 net1 weak_in VSS VSS sky130_fd_pr__nfet_01v8 L=0.15 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+XM3 net2 net1 VDD VDD sky130_fd_pr__pfet_01v8 L=0.15 W=6 nf=4 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+XM4 net2 net1 VSS VSS sky130_fd_pr__nfet_01v8 L=0.15 W=3 nf=2 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+XM5 STRONG_OUT net2 VDD VDD sky130_fd_pr__pfet_01v8 L=0.15 W=16 nf=8 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+XM6 STRONG_OUT net2 VSS VSS sky130_fd_pr__nfet_01v8 L=0.15 W=8 nf=4 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+.ends
+
+.GLOBAL GND
+.end
