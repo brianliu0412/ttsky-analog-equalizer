@@ -97,7 +97,7 @@ C {devices/iopin.sym} -260 -60 0 0 {name=p2 lab=VSS
 }
 C {sky130_fd_pr/pfet_01v8.sym} 60 -80 0 0 {name=M1
 L=0.15
-W=1
+W=2
 nf=1
 mult=1
 ad="'int((nf+1)/2) * W/nf * 0.29'" 

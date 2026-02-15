@@ -133,16 +133,6 @@ N 1800 -240 1900 -240 {
 lab=#net5}
 N 1280 -0 1380 0 {
 lab=#net6}
-N 1740 40 1820 40 {
-lab=vout1}
-N 2260 -200 2300 -200 {
-lab=vout0}
-N 1820 20 1820 40 {
-lab=vout1}
-N 2300 -200 2380 -200 {
-lab=vout0}
-N 2380 -220 2380 -200 {
-lab=vout0}
 N 2210 -270 2210 -240 {
 lab=Vdd}
 N 2200 -240 2210 -240 {
@@ -295,8 +285,6 @@ C {devices/lab_wire.sym} 490 -140 0 0 {name=p9 sig_type=std_logic lab=clk+
 }
 C {devices/lab_wire.sym} 490 -160 0 0 {name=p15 sig_type=std_logic lab=clk-
 }
-C {devices/lab_wire.sym} 1820 20 0 0 {name=p23 sig_type=std_logic lab=vout1
-}
 C {d_latch.sym} 710 80 0 0 {name=x3}
 C {devices/lab_wire.sym} 920 130 0 0 {name=p27 sig_type=std_logic lab=Vdd
 }
@@ -329,18 +317,6 @@ C {devices/lab_wire.sym} 1860 -170 0 0 {name=p33 sig_type=std_logic lab=Vdd
 }
 C {devices/lab_wire.sym} 1800 -160 0 0 {name=p34 sig_type=std_logic lab=Vss
 }
-C {devices/res.sym} 2230 -200 3 1 {name=R3
-value=500
-footprint=1206
-device=resistor
-m=1}
-C {devices/res.sym} 1710 40 3 1 {name=R4
-value=500
-footprint=1206
-device=resistor
-m=1}
-C {devices/lab_wire.sym} 2380 -220 0 0 {name=p35 sig_type=std_logic lab=vout0
-}
 C {inverter_chain.sym} 2050 -220 0 0 {name=x6}
 C {inverter_chain.sym} 1530 20 0 0 {name=x7}
 C {devices/lab_wire.sym} 2210 -270 0 0 {name=p32 sig_type=std_logic lab=Vdd
@@ -366,3 +342,5 @@ C {devices/lab_wire.sym} 980 -160 0 0 {name=p45 sig_type=std_logic lab=clk+
 }
 C {devices/lab_wire.sym} 980 -140 0 0 {name=p46 sig_type=std_logic lab=clk-
 }
+C {devices/opin.sym} 2200 -200 0 0 {name=p23 lab=vout1}
+C {devices/opin.sym} 1680 40 0 0 {name=p35 lab=vout0}
