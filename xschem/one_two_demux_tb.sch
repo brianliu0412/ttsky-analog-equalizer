@@ -35,6 +35,42 @@ N 400 -50 400 -40 {
 lab=Vss}
 N 330 -40 400 -40 {
 lab=Vss}
+N 450 -100 450 10 {
+lab=vout0}
+N 330 -100 450 -100 {
+lab=vout0}
+N 890 -70 930 -70 {
+lab=Vdd}
+N 960 -70 960 -60 {
+lab=Vss}
+N 960 -60 960 -50 {
+lab=Vss}
+N 890 -50 960 -50 {
+lab=Vss}
+N 330 -20 490 -20 {
+lab=#net3}
+N 490 -90 490 -20 {
+lab=#net3}
+N 490 -90 590 -90 {
+lab=#net3}
+N 590 -70 590 0 {
+lab=#net4}
+N 330 0 590 0 {
+lab=#net4}
+N 330 -140 530 -140 {
+lab=inv}
+N 530 -140 530 -130 {
+lab=inv}
+N 530 -130 590 -130 {
+lab=inv}
+N 330 -120 480 -120 {
+lab=#net5}
+N 480 -120 480 -110 {
+lab=#net5}
+N 480 -110 590 -110 {
+lab=#net5}
+N 420 -190 420 -140 {
+lab=inv}
 C {one_to_two_demux.sym} 180 -70 0 0 {name=x1}
 C {devices/vsource.sym} -700 -110 0 0 {name=V3 value=1.8 savecurrent=false}
 C {devices/gnd.sym} -700 -80 0 0 {name=l3 lab=GND}
@@ -65,7 +101,7 @@ C {devices/vsource.sym} -410 -30 0 0 {name=V4 value="PWL(0 0 2n 0 2.05n 1.8 3n 1
 C {devices/gnd.sym} -410 0 0 0 {name=l4 lab=GND}
 C {devices/lab_wire.sym} -410 -120 0 0 {name=p8 sig_type=std_logic lab=vin-
 }
-C {devices/vsource.sym} -530 330 0 0 {name=V5 value=0.9 savecurrent=false}
+C {devices/vsource.sym} -530 330 0 0 {name=V5 value=1.2 savecurrent=false}
 C {devices/gnd.sym} -530 360 0 0 {name=l5 lab=GND
 value=vbias}
 C {devices/vsource.sym} -520 -280 0 0 {name=V6 value="TRNOISE(10m 50p 0 0)" savecurrent=false
@@ -86,11 +122,11 @@ footprint=1206
 device="ceramic capacitor"}
 C {devices/lab_wire.sym} -440 390 0 0 {name=p29 sig_type=std_logic lab=Vss
 }
-C {devices/vsource.sym} -950 90 0 0 {name=V8 value="PULSE(1.8 0 0 20p 20p 0.98n 2n)" savecurrent=false}
+C {devices/vsource.sym} -950 90 0 0 {name=V8 value="PULSE(1.8 0 0 10p 10p 0.24n 0.5n)" savecurrent=false}
 C {devices/gnd.sym} -950 120 0 0 {name=l6 lab=GND}
 C {devices/lab_wire.sym} -950 60 0 0 {name=p9 sig_type=std_logic lab=in_clk-
 }
-C {devices/vsource.sym} -1080 -50 0 0 {name=V9 value="PULSE(0 1.8 0 20p 20p 0.98n 2n)" savecurrent=false
+C {devices/vsource.sym} -1080 -50 0 0 {name=V9 value="PULSE(0 1.8 0 10p 10p 0.24n 0.5n)" savecurrent=false
 lab=vin+}
 C {devices/gnd.sym} -1080 -20 0 0 {name=l7 lab=GND}
 C {devices/lab_wire.sym} -1080 -100 0 0 {name=p10 sig_type=std_logic lab=in_clk+
@@ -108,4 +144,19 @@ C {devices/lab_wire.sym} 400 -60 0 0 {name=p11 sig_type=std_logic lab=Vss
 C {devices/lab_wire.sym} 30 -80 0 0 {name=p12 sig_type=std_logic lab=in_clk+
 }
 C {devices/lab_wire.sym} 30 -60 0 0 {name=p13 sig_type=std_logic lab=in_clk-
+}
+C {devices/opin.sym} 450 10 0 0 {name=p19 lab=vout0}
+C {one_to_two_demux.sym} 740 -80 0 0 {name=x2}
+C {devices/lab_wire.sym} 590 -150 0 0 {name=p14 sig_type=std_logic lab=vbias
+}
+C {devices/lab_wire.sym} 930 -70 0 0 {name=p17 sig_type=std_logic lab=Vdd
+}
+C {devices/lab_wire.sym} 960 -70 0 0 {name=p18 sig_type=std_logic lab=Vss
+}
+C {devices/opin.sym} 890 -30 0 0 {name=p27 lab=clk+}
+C {devices/opin.sym} 890 -10 0 0 {name=p30 lab=clk-}
+C {devices/opin.sym} 890 -150 0 0 {name=p20 lab=vout1}
+C {devices/lab_wire.sym} 420 -190 0 0 {name=p15 sig_type=std_logic lab=inv
+}
+C {devices/lab_wire.sym} 480 -190 0 0 {name=p16 sig_type=std_logic lab=inv
 }

@@ -46,7 +46,7 @@ lab=vout1-}
 N 830 -120 910 -120 {
 lab=clk+}
 N 830 -100 910 -100 {
-lab=clk-}
+lab=nclk_in}
 N 710 -160 910 -160 {
 lab=#net2}
 N 730 -140 910 -140 {
@@ -61,22 +61,10 @@ N 1220 -140 1250 -140 {
 lab=vout1-}
 N 1210 -160 1270 -160 {
 lab=vout1+}
-N 340 300 420 300 {
+N 340 330 420 330 {
 lab=Vss}
-N 420 280 420 300 {
+N 420 310 420 330 {
 lab=Vss}
-N 340 280 370 280 {
-lab=Vdd}
-N 370 250 370 280 {
-lab=Vdd}
-N 340 410 420 410 {
-lab=Vss}
-N 420 390 420 410 {
-lab=Vss}
-N 340 390 370 390 {
-lab=Vdd}
-N 370 360 370 390 {
-lab=Vdd}
 N 220 -40 220 80 {
 lab=vin+}
 N 220 80 410 80 {
@@ -85,6 +73,12 @@ N 240 -20 240 100 {
 lab=vin-}
 N 170 80 220 80 {
 lab=vin+}
+N 340 310 390 310 {
+lab=Vdd}
+N 20 370 40 370 {
+lab=vbias}
+N 40 310 40 370 {
+lab=vbias}
 C {devices/lab_wire.sym} 340 -100 0 0 {name=p9 sig_type=std_logic lab=clk+
 }
 C {devices/lab_wire.sym} 340 -120 0 0 {name=p15 sig_type=std_logic lab=clk-
@@ -125,21 +119,13 @@ C {devices/iopin.sym} -240 170 0 0 {name=p2 lab=Vss
 
 }
 C {divide_by_two.sym} 190 300 0 0 {name=x1}
-C {divide_by_two.sym} 190 410 0 0 {name=x2}
-C {devices/ipin.sym} 40 280 0 0 {name=p3 lab=pclk_in
+C {devices/ipin.sym} 40 270 0 0 {name=p3 lab=pclk_in
 }
-C {devices/ipin.sym} 40 390 0 0 {name=p4 lab=nclk_in
+C {devices/lab_wire.sym} 420 310 0 0 {name=p5 sig_type=std_logic lab=Vss
 }
-C {devices/lab_wire.sym} 420 280 0 0 {name=p5 sig_type=std_logic lab=Vss
+C {devices/lab_wire.sym} 390 310 0 0 {name=p6 sig_type=std_logic lab=Vdd
 }
-C {devices/lab_wire.sym} 370 250 0 0 {name=p6 sig_type=std_logic lab=Vdd
-}
-C {devices/lab_wire.sym} 420 390 0 0 {name=p7 sig_type=std_logic lab=Vss
-}
-C {devices/lab_wire.sym} 370 360 0 0 {name=p8 sig_type=std_logic lab=Vdd
-}
-C {devices/opin.sym} 340 320 0 0 {name=p10 lab=clk+}
-C {devices/opin.sym} 340 430 0 0 {name=p11 lab=clk-}
+C {devices/opin.sym} 340 270 0 0 {name=p10 lab=clk+}
 C {devices/ipin.sym} 170 80 0 0 {name=p12 lab=vin+
 }
 C {devices/ipin.sym} 170 100 0 0 {name=p13 lab=vin-
@@ -149,4 +135,9 @@ C {devices/opin.sym} 1250 -140 0 0 {name=p14 lab=vout1-}
 C {devices/opin.sym} 830 80 0 0 {name=p18 lab=vout0+}
 C {devices/opin.sym} 800 100 0 0 {name=p21 lab=vout0-}
 C {devices/ipin.sym} 420 -80 0 0 {name=p16 lab=vbias
+}
+C {devices/opin.sym} 340 290 0 0 {name=p4 lab=clk-}
+C {devices/ipin.sym} 40 290 0 0 {name=p7 lab=nclk_in
+}
+C {devices/lab_wire.sym} 20 370 0 0 {name=p8 sig_type=std_logic lab=vbias
 }
