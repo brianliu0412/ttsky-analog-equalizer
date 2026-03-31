@@ -185,6 +185,8 @@ N 1860 10 1860 30 {
 lab=Vss}
 N 1800 30 1860 30 {
 lab=Vss}
+N 1500 -140 1500 -120 {
+lab=d2s_probe}
 C {devices/vsource.sym} -170 -60 0 0 {name=V3 value=1.8 savecurrent=false}
 C {devices/gnd.sym} -170 -30 0 0 {name=l3 lab=GND}
 C {devices/lab_wire.sym} -170 -90 0 0 {name=p5 sig_type=std_logic lab=Vdd
