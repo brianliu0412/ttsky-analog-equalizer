@@ -5,32 +5,97 @@ K {}
 V {}
 S {}
 E {}
+B 2 -1390 120 -590 520 {flags=graph
+y1=-0.044
+y2=1.9
+ypos1=0
+ypos2=2
+divy=5
+subdivy=1
+unity=1
+x1=-5.2227062e-10
+x2=4.9752842e-09
+divx=5
+subdivx=1
+xlabmag=1.0
+ylabmag=1.0
+node="vin+
+rclk+"
+color="4 5"
+dataset=-1
+unitx=1
+logx=0
+logy=0
+}
+B 2 50 -690 850 -290 {flags=graph
+y1=0
+y2=2
+ypos1=0
+ypos2=2
+divy=5
+subdivy=1
+unity=1
+x1=-5.2227062e-10
+x2=4.9752842e-09
+divx=5
+subdivx=1
+xlabmag=1.0
+ylabmag=1.0
+node="vin+
+vin-"
+color="5 4"
+dataset=-1
+unitx=1
+logx=0
+logy=0
+}
+B 2 900 -690 1700 -290 {flags=graph
+y1=0
+y2=2
+ypos1=0
+ypos2=2
+divy=5
+subdivy=1
+unity=1
+x1=0
+x2=10e-6
+divx=5
+subdivx=1
+xlabmag=1.0
+ylabmag=1.0
+node=""
+color=""
+dataset=-1
+unitx=1
+logx=0
+logy=0
+}
 N -450 -140 -420 -140 {
 lab=vin+}
 N -450 -120 -420 -120 {
-lab=#net1}
-N -1310 310 -1290 310 {
+lab=vin-}
+N -330 230 -310 230 {
 lab=vbias}
-N -1290 370 -1290 420 {
+N -310 290 -310 340 {
 lab=Vss}
-N -1290 260 -1290 310 {
+N -310 180 -310 230 {
 lab=vbias}
-N -1290 210 -1290 260 {
+N -310 130 -310 180 {
 lab=vbias}
-N -1340 210 -1290 210 {
+N -360 130 -310 130 {
 lab=vbias}
-N -1340 170 -1340 210 {
+N -360 90 -360 130 {
 lab=vbias}
-N -1380 310 -1370 310 {
-lab=#net2}
-N -1380 310 -1380 330 {
-lab=#net2}
-N -420 -120 -380 -120 {
+N -400 230 -390 230 {
 lab=#net1}
+N -400 230 -400 250 {
+lab=#net1}
+N -420 -120 -380 -120 {
+lab=vin-}
 N -420 -140 -340 -140 {
 lab=vin+}
 N -380 -120 -340 -120 {
-lab=#net1}
+lab=vin-}
 N 760 570 800 570 {
 lab=Vss}
 N 800 550 800 570 {
@@ -71,19 +136,19 @@ N 960 490 990 490 {
 lab=single}
 N 600 30 710 30 {
 lab=v_ctrl}
-N -20 -550 -20 -530 {
+N 370 350 370 370 {
 lab=Vdd}
-N -20 -550 0 -550 {
+N 370 350 390 350 {
 lab=Vdd}
-N 0 -550 0 -530 {
+N 390 350 390 370 {
 lab=Vdd}
-N -10 -560 -10 -550 {
+N 380 340 380 350 {
 lab=Vdd}
-N -20 -250 -20 -230 {
+N 370 650 370 670 {
 lab=Vss}
-N -20 -230 0 -230 {
+N 370 670 390 670 {
 lab=Vss}
-N 0 -250 0 -230 {
+N 390 650 390 670 {
 lab=Vss}
 N 240 0 360 0 {
 lab=down}
@@ -126,11 +191,11 @@ lab=v_ctrl}
 N 990 490 1080 490 {
 lab=single}
 N -330 20 -60 20 {
-lab=#net1}
+lab=vin-}
 N -330 -120 -330 20 {
-lab=#net1}
+lab=vin-}
 N -340 -120 -330 -120 {
-lab=#net1}
+lab=vin-}
 N 360 -0 370 -0 {
 lab=down}
 N 370 -20 370 -0 {
@@ -199,19 +264,23 @@ N 360 120 360 130 {
 lab=bias_n}
 N 360 130 420 130 {
 lab=bias_n}
-C {devices/vsource.sym} -1550 -80 0 0 {name=V3 value=1.8 savecurrent=false}
-C {devices/gnd.sym} -1550 -50 0 0 {name=l3 lab=GND}
-C {devices/lab_wire.sym} -1550 -110 0 0 {name=p5 sig_type=std_logic lab=Vdd
+N -330 -120 -290 -120 {
+lab=vin-}
+N -290 -120 -280 -120 {
+lab=vin-}
+C {devices/vsource.sym} -120 330 0 0 {name=V3 value=1.8 savecurrent=false}
+C {devices/gnd.sym} -120 360 0 0 {name=l3 lab=GND}
+C {devices/lab_wire.sym} -120 300 0 0 {name=p5 sig_type=std_logic lab=Vdd
 }
-C {devices/vsource.sym} -1460 -80 0 0 {name=V1 value=0 savecurrent=false}
-C {devices/gnd.sym} -1460 -50 0 0 {name=l1 lab=GND}
-C {devices/lab_wire.sym} -1460 -110 0 0 {name=p1 sig_type=std_logic lab=Vss
+C {devices/vsource.sym} -30 330 0 0 {name=V1 value=0 savecurrent=false}
+C {devices/gnd.sym} -30 360 0 0 {name=l1 lab=GND}
+C {devices/lab_wire.sym} -30 300 0 0 {name=p1 sig_type=std_logic lab=Vss
 }
-C {devices/simulator_commands_shown.sym} -1660 -620 0 0 {name=COMMANDS
+C {devices/simulator_commands_shown.sym} -960 -520 0 0 {name=COMMANDS
 simulator=ngspice
 only_toplevel=false 
 value="
-.lib /home/ttuser/pdk/sky130A/libs.tech/ngspice/sky130.lib.spice tt
+*.lib /home/ttuser/pdk/sky130A/libs.tech/ngspice/sky130.lib.spice tt
 .include /home/ttuser/pdk/sky130A/libs.ref/sky130_fd_sc_hd/spice/sky130_fd_sc_hd.spice
 .options method=gear reltol=0.001 abstol=1e-12
 .op
@@ -225,22 +294,22 @@ lab=vin+}
 C {devices/gnd.sym} -610 -75 0 0 {name=l2 lab=GND}
 C {devices/vsource.sym} -450 -90 0 0 {name=V4 value="PULSE(1.8 0 0 10p 10p 0.5n 1n)" savecurrent=false}
 C {devices/gnd.sym} -450 -60 0 0 {name=l4 lab=GND}
-C {devices/vsource.sym} -1380 360 0 0 {name=V5 value=0.9 savecurrent=false}
-C {devices/gnd.sym} -1380 390 0 0 {name=l5 lab=GND
+C {devices/vsource.sym} -400 280 0 0 {name=V5 value=0.9 savecurrent=false}
+C {devices/gnd.sym} -400 310 0 0 {name=l5 lab=GND
 value=vbias}
-C {devices/lab_wire.sym} -1340 170 0 0 {name=p28 sig_type=std_logic lab=vbias
+C {devices/lab_wire.sym} -360 90 0 0 {name=p28 sig_type=std_logic lab=vbias
 }
-C {devices/res.sym} -1340 310 1 0 {name=R8
+C {devices/res.sym} -360 230 1 0 {name=R8
 value=500
 footprint=1206
 device=resistor
 m=1}
-C {devices/capa.sym} -1290 340 0 0 {name=C5
+C {devices/capa.sym} -310 260 0 0 {name=C5
 m=1
 value=1p
 footprint=1206
 device="ceramic capacitor"}
-C {devices/lab_wire.sym} -1290 420 0 0 {name=p29 sig_type=std_logic lab=Vss
+C {devices/lab_wire.sym} -310 340 0 0 {name=p29 sig_type=std_logic lab=Vss
 }
 C {tiny_pll_vco.sym} 880 510 0 0 {name=x1}
 C {devices/lab_wire.sym} 760 570 0 0 {name=p2 sig_type=std_logic lab=Vss
@@ -258,14 +327,14 @@ C {devices/lab_wire.sym} 470 -200 0 0 {name=p14 sig_type=std_logic lab=Vdd
 }
 C {devices/lab_wire.sym} 460 250 0 0 {name=p35 sig_type=std_logic lab=Vss
 }
-C {tiny_pll_bias_gen.sym} -100 -370 0 0 {name=x8}
-C {devices/lab_wire.sym} -10 -560 0 0 {name=p43 sig_type=std_logic lab=Vdd
+C {tiny_pll_bias_gen.sym} 290 530 0 0 {name=x8}
+C {devices/lab_wire.sym} 380 340 0 0 {name=p43 sig_type=std_logic lab=Vdd
 }
-C {devices/lab_wire.sym} -20 -230 0 0 {name=p44 sig_type=std_logic lab=Vss
+C {devices/lab_wire.sym} 370 670 0 0 {name=p44 sig_type=std_logic lab=Vss
 }
-C {devices/lab_wire.sym} 40 -390 0 1 {name=p47 sig_type=std_logic lab=bias_p
+C {devices/lab_wire.sym} 430 510 0 1 {name=p47 sig_type=std_logic lab=bias_p
 }
-C {devices/lab_wire.sym} 40 -330 0 1 {name=p48 sig_type=std_logic lab=bias_n
+C {devices/lab_wire.sym} 430 570 0 1 {name=p48 sig_type=std_logic lab=bias_n
 }
 C {devices/opin.sym} 1760 570 0 0 {name=p17 lab=rclk-}
 C {tiny_pll_loop_filter.sym} 990 40 0 0 {name=x3}
@@ -284,9 +353,9 @@ C {devices/lab_wire.sym} -60 -40 0 0 {name=p33 sig_type=std_logic lab=rclk+
 }
 C {devices/lab_wire.sym} -60 0 0 0 {name=p34 sig_type=std_logic lab=rclk-
 }
-C {devices/lab_wire.sym} -220 -370 0 0 {name=p45 sig_type=std_logic lab=Vdd
+C {devices/lab_wire.sym} 170 530 0 0 {name=p45 sig_type=std_logic lab=Vdd
 }
-C {devices/lab_wire.sym} -220 -350 0 0 {name=p46 sig_type=std_logic lab=Vss
+C {devices/lab_wire.sym} 170 550 0 0 {name=p46 sig_type=std_logic lab=Vss
 }
 C {devices/lab_wire.sym} 370 -20 0 0 {name=p7 sig_type=std_logic lab=down
 }
@@ -315,3 +384,20 @@ C {devices/lab_wire.sym} 360 -110 0 1 {name=p10 sig_type=std_logic lab=bias_p
 }
 C {devices/lab_wire.sym} 360 120 0 1 {name=p11 sig_type=std_logic lab=bias_n
 }
+C {devices/code.sym} -940 -290 0 0 {name=TT_MODELS
+only_toplevel=true
+format="tcleval( @value )"
+value="
+** opencircuitdesign pdks install
+.lib $::SKYWATER_MODELS/sky130.lib.spice tt
+
+"
+spice_ignore=false}
+C {devices/launcher.sym} -880 -140 0 0 {name=h17 
+descr="Load waves" 
+tclcommand="
+xschem raw_read $netlist_dir/[file tail [file rootname [xschem get current_name]]].raw tran
+
+"
+}
+C {devices/lab_wire.sym} -295 -120 2 0 {name=p12 sig_type=std_logic lab=vin-}
