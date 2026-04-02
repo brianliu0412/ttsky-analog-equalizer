@@ -5,7 +5,29 @@ K {}
 V {}
 S {}
 E {}
-N -60 80 -60 100 {
+B 2 800 -600 1600 -200 {flags=graph
+y1=0
+y2=2
+ypos1=0
+ypos2=2
+divy=5
+subdivy=1
+unity=1
+x1=-1.4246435e-09
+x2=6.3964602e-09
+divx=5
+subdivx=1
+xlabmag=1.0
+ylabmag=1.0
+node="vin+
+clk_gen"
+color="10 4"
+dataset=-1
+unitx=1
+logx=0
+logy=0
+}
+N 10 130 10 150 {
 lab=vin+}
 N 190 130 190 150 {
 lab=vin-}
@@ -115,21 +137,21 @@ N 1380 720 1860 720 {
 lab=#net4}
 N 1380 700 1380 720 {
 lab=#net4}
-N 470 430 510 430 {
+N 740 480 780 480 {
 lab=VDD}
-N 510 410 510 430 {
+N 780 460 780 480 {
 lab=VDD}
-N 470 450 550 450 {
+N 740 500 820 500 {
 lab=VSS}
-N 550 440 550 450 {
+N 820 490 820 500 {
 lab=VSS}
-N 470 470 590 470 {
+N 740 520 860 520 {
 lab=clk-}
-N 470 490 650 490 {
+N 740 540 920 540 {
 lab=clk+}
-N 650 480 650 490 {
+N 920 530 920 540 {
 lab=clk+}
-N 590 450 590 470 {
+N 860 500 860 520 {
 lab=clk-}
 N 800 720 830 720 {
 lab=VSS}
@@ -147,21 +169,21 @@ C {devices/vsource.sym} -150 220 0 0 {name=V1 value=0 savecurrent=false}
 C {devices/gnd.sym} -150 250 0 0 {name=l1 lab=GND}
 C {devices/lab_wire.sym} -150 190 0 0 {name=p1 sig_type=std_logic lab=VSS
 }
-C {devices/vsource.sym} -60 130 0 0 {name=V2 value="PULSE(0 1.8 0 5p 5p 0.5n 1n)" savecurrent=false
+C {devices/vsource.sym} 10 180 0 0 {name=V2 value="PULSE(0 1.8 0 5p 5p 0.5n 1n)" savecurrent=false
 lab=vin+}
-C {devices/gnd.sym} -60 160 0 0 {name=l2 lab=GND}
-C {devices/lab_wire.sym} -60 80 0 0 {name=p9 sig_type=std_logic lab=vin+
+C {devices/gnd.sym} 10 210 0 0 {name=l2 lab=GND}
+C {devices/lab_wire.sym} 10 130 0 0 {name=p9 sig_type=std_logic lab=vin+
 }
 C {devices/simulator_commands_shown.sym} -540 -220 0 0 {name=COMMANDS1
 simulator=ngspice
 only_toplevel=false 
 value="
-.lib /home/ttuser/pdk/sky130A/libs.tech/ngspice/sky130.lib.spice tt
+*.lib /home/ttuser/pdk/sky130A/libs.tech/ngspice/sky130.lib.spice tt
 .options method=gear reltol=0.001 abstol=1e-12
 .op
 .control
   tran 10p 20n
-  write divide_by_two_tb.raw
+  write alexander_loop_tb.raw
 .endc
 "}
 C {devices/vsource.sym} 190 180 0 0 {name=V4 value="PULSE(1.8 0 0 5p 5p 0.5n 1n)" savecurrent=false
@@ -193,9 +215,9 @@ C {devices/lab_wire.sym} 830 50 0 0 {name=p12 sig_type=std_logic lab=vin+
 C {devices/vsource.sym} 20 330 0 0 {name=V6 value="PULSE(0 1.8 50p 5p 5p 1n 2n)" savecurrent=false
 lab=vin+}
 C {devices/gnd.sym} 20 360 0 0 {name=l6 lab=GND}
-C {devices/lab_wire.sym} 650 480 0 0 {name=p10 sig_type=std_logic lab=clk+
+C {devices/lab_wire.sym} 920 530 0 0 {name=p10 sig_type=std_logic lab=clk+
 }
-C {devices/lab_wire.sym} 590 450 0 0 {name=p11 sig_type=std_logic lab=clk-
+C {devices/lab_wire.sym} 860 500 0 0 {name=p11 sig_type=std_logic lab=clk-
 }
 C {devices/lab_wire.sym} 980 250 0 0 {name=p3 sig_type=std_logic lab=clk+
 }
@@ -246,12 +268,12 @@ C {devices/lab_wire.sym} 1800 -10 0 1 {name=p14 sig_type=std_logic lab=test2}
 C {devices/lab_wire.sym} 1340 230 0 1 {name=p15 sig_type=std_logic lab=test3}
 C {devices/lab_wire.sym} 20 280 0 0 {name=p45 sig_type=std_logic lab=clk_gen
 }
-C {s2d.sym} 320 460 0 0 {name=x4}
-C {devices/lab_wire.sym} 510 410 0 0 {name=p49 sig_type=std_logic lab=VDD
+C {s2d.sym} 590 510 0 0 {name=x4}
+C {devices/lab_wire.sym} 780 460 0 0 {name=p49 sig_type=std_logic lab=VDD
 }
-C {devices/lab_wire.sym} 550 440 0 0 {name=p50 sig_type=std_logic lab=VSS
+C {devices/lab_wire.sym} 820 490 0 0 {name=p50 sig_type=std_logic lab=VSS
 }
-C {devices/lab_wire.sym} 170 430 0 0 {name=p46 sig_type=std_logic lab=clk_gen
+C {devices/lab_wire.sym} 440 480 0 0 {name=p46 sig_type=std_logic lab=clk_gen
 }
 C {d_latch.sym} 650 700 0 0 {name=x8}
 C {devices/lab_wire.sym} 500 700 0 0 {name=p48 sig_type=std_logic lab=clk+
@@ -270,3 +292,19 @@ C {devices/lab_wire.sym} 500 740 0 0 {name=p56 sig_type=std_logic lab=vbias
 }
 C {devices/opin.sym} 800 660 0 0 {name=p57 lab=d+}
 C {devices/opin.sym} 800 680 0 0 {name=p58 lab=d-}
+C {devices/code.sym} 250 -190 0 0 {name=TT_MODELS
+only_toplevel=true
+format="tcleval( @value )"
+value="
+** opencircuitdesign pdks install
+.lib $::SKYWATER_MODELS/sky130.lib.spice tt
+
+"
+spice_ignore=false}
+C {devices/launcher.sym} 310 -40 0 0 {name=h17 
+descr="Load waves" 
+tclcommand="
+xschem raw_read $netlist_dir/[file tail [file rootname [xschem get current_name]]].raw tran
+
+"
+}
