@@ -6,8 +6,8 @@ V {}
 S {}
 E {}
 B 2 0 170 800 570 {flags=graph
-y1=0
-y2=1.8
+y1=-1.9e-11
+y2=1.9
 ypos1=0
 ypos2=2
 divy=5
@@ -28,9 +28,10 @@ dataset=-1
 unitx=1
 logx=0
 logy=0
-hilight_wave=-1}
+hilight_wave=-1
+sim_type=tran}
 B 2 860 170 1660 570 {flags=graph
-y1=0
+y1=-1.9e-11
 y2=1.9
 ypos1=0
 ypos2=2
@@ -64,8 +65,6 @@ N -500 390 -500 410 {
 lab=#net1}
 N -410 390 -330 390 {
 lab=vbias}
-N -1000 150 -1000 170 {
-lab=#net2}
 N -1000 230 -1000 250 {
 lab=vin+}
 N -90 -20 -70 -20 {
@@ -169,14 +168,10 @@ lab=vin+}
 C {devices/gnd.sym} -1000 310 0 0 {name=l2 lab=GND}
 C {devices/lab_wire.sym} -1000 240 0 0 {name=p3 sig_type=std_logic lab=vin+
 }
-C {devices/vsource.sym} -1000 200 0 0 {name=V6 value="TRNOISE(100m 50p 0 0)" savecurrent=false
-lab=vin+}
 C {devices/vsource.sym} -460 270 0 0 {name=V4 value="PWL(0 0 5n 0 5.05n 1.8 6n 1.8 6.05n 0 7n 0 7.05n 1.8 9n 1.8 9.05n 0 11n 0)" savecurrent=false}
 C {devices/gnd.sym} -460 300 0 0 {name=l4 lab=GND}
 C {devices/lab_wire.sym} -460 240 0 0 {name=p6 sig_type=std_logic lab=vin-
 }
-C {devices/vsource.sym} -460 200 0 0 {name=V7 value="TRNOISE(100m 50p 0 0)" savecurrent=false
-lab=vin+}
 C {devices/lab_wire.sym} -90 20 0 0 {name=p2 sig_type=std_logic lab=vbias
 }
 C {devices/lab_wire.sym} -610 100 0 0 {name=p4 sig_type=std_logic lab=vin-
@@ -216,19 +211,27 @@ C {devices/lab_wire.sym} -90 -20 0 0 {name=p10 sig_type=std_logic lab=vin+_bad
 }
 C {devices/lab_wire.sym} -90 0 0 0 {name=p11 sig_type=std_logic lab=vin-_bad
 }
-C {devices/simulator_commands_shown.sym} -430 -350 0 0 {name=COMMANDS
+C {devices/simulator_commands_shown.sym} 340 -290 0 0 {name=COMMANDS
 simulator=ngspice
 only_toplevel=false 
 value="
 *.lib /home/ttuser/pdk/sky130A/libs.tech/ngspice/sky130.lib.spice tt
 .options method=gear reltol=0.001 abstol=1e-12
-.op
-.options savecurrents
+*.options savecurrents
+
 .control
-  save all
-  *tran 10p 20n
-  ac dec 20 1 1e11
-  write CTLE_testbench1.raw
+save all
+set appendwrite
+
+op
+write CTLE_testbench1.raw
+
+tran 10p 20n
+write CTLE_testbench1.raw
+
+ac dec 20 1 1e11
+write CTLE_testbench1.raw
+
 .endc
 "}
 C {devices/code.sym} -180 330 0 0 {name=TT_MODELS
