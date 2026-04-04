@@ -6,15 +6,15 @@ V {}
 S {}
 E {}
 B 2 0 170 800 570 {flags=graph
-y1=-1.9e-11
-y2=1.9
+y1=0
+y2=1.8
 ypos1=0
 ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=0
-x2=2e-08
+x1=-1.5e-09
+x2=2.85e-08
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -23,7 +23,7 @@ node="vin-_bad
 vin+_bad
 vin+
 vin-"
-color="4 5 12 12"
+color="4 5 12 6"
 dataset=-1
 unitx=1
 logx=0
@@ -31,15 +31,15 @@ logy=0
 hilight_wave=-1
 sim_type=tran}
 B 2 860 170 1660 570 {flags=graph
-y1=-1.9e-11
+y1=3.5e-14
 y2=1.9
 ypos1=0
 ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=0
-x2=2e-08
+x1=-1.5e-09
+x2=2.85e-08
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -55,6 +55,29 @@ node="vin+_bad
 vin-_bad
 vout+
 vout-"}
+B 2 830 670 1630 1070 {flags=graph
+y1=-1.9e-11
+y2=1.9
+ypos1=0
+ypos2=2
+divy=5
+subdivy=1
+unity=1
+x1=-1.5e-09
+x2=2.85e-08
+divx=5
+subdivx=1
+xlabmag=1.0
+ylabmag=1.0
+
+
+dataset=-1
+unitx=1
+logx=0
+logy=0
+color="4 5"
+node="vin+_bad
+vout+"}
 N -430 390 -410 390 {
 lab=vbias}
 N -410 450 -410 500 {
@@ -65,7 +88,7 @@ N -500 390 -500 410 {
 lab=#net1}
 N -410 390 -330 390 {
 lab=vbias}
-N -1000 230 -1000 250 {
+N -650 140 -650 160 {
 lab=vin+}
 N -90 -20 -70 -20 {
 lab=vin+_bad}
@@ -103,7 +126,7 @@ N -520 -60 -490 -60 {
 lab=vin+_bad}
 N -520 -60 -520 -50 {
 lab=vin+_bad}
-N -460 230 -460 240 {
+N -670 260 -670 270 {
 lab=vin-}
 N -160 740 -120 740 {
 lab=vbias}
@@ -146,7 +169,7 @@ C {devices/vsource.sym} -570 440 0 0 {name=V1 value=0 savecurrent=false}
 C {devices/gnd.sym} -570 470 0 0 {name=l1 lab=GND}
 C {devices/lab_wire.sym} -570 410 0 0 {name=p1 sig_type=std_logic lab=Vss
 }
-C {devices/vsource.sym} -500 440 0 0 {name=V5 value=0.9 savecurrent=false}
+C {devices/vsource.sym} -500 440 0 0 {name=V5 value=0.95 savecurrent=false}
 C {devices/gnd.sym} -500 470 0 0 {name=l5 lab=GND
 value=vbias}
 C {devices/lab_wire.sym} -330 390 2 0 {name=p28 sig_type=std_logic lab=vbias
@@ -163,14 +186,14 @@ footprint=1206
 device="ceramic capacitor"}
 C {devices/lab_wire.sym} -410 500 0 0 {name=p29 sig_type=std_logic lab=Vss
 }
-C {devices/vsource.sym} -1000 280 0 0 {name=V2 value="PWL(0 1.8 5n 1.8 5.05n 0 6n 0 6.05n 1.8 7n 1.8 7.05n 0 9n 0 9.05n 1.8 11n 1.8)" savecurrent=false
+C {devices/vsource.sym} -650 190 0 0 {name=V2 value="DC 0.9 PWL(0 1.8 5n 1.8 8.33333n 1.8 8.38333n 0 10n 0 10.05n 1.8 13.3333n 1.8 13.3833n 0 16.6667n 0) AC 1" savecurrent=false
 lab=vin+}
-C {devices/gnd.sym} -1000 310 0 0 {name=l2 lab=GND}
-C {devices/lab_wire.sym} -1000 240 0 0 {name=p3 sig_type=std_logic lab=vin+
+C {devices/gnd.sym} -650 220 0 0 {name=l2 lab=GND}
+C {devices/lab_wire.sym} -650 150 0 0 {name=p3 sig_type=std_logic lab=vin+
 }
-C {devices/vsource.sym} -460 270 0 0 {name=V4 value="PWL(0 0 5n 0 5.05n 1.8 6n 1.8 6.05n 0 7n 0 7.05n 1.8 9n 1.8 9.05n 0 11n 0)" savecurrent=false}
-C {devices/gnd.sym} -460 300 0 0 {name=l4 lab=GND}
-C {devices/lab_wire.sym} -460 240 0 0 {name=p6 sig_type=std_logic lab=vin-
+C {devices/vsource.sym} -670 300 0 0 {name=V4 value="DC 0.9 PWL(0 0 5n 0 8.33333n 0 8.38333n 1.8 10n 1.8 10.05n 0 13.3333n 0 13.3833n 1.8 16.6667n 1.8) AC 1 180" savecurrent=false}
+C {devices/gnd.sym} -670 330 0 0 {name=l4 lab=GND}
+C {devices/lab_wire.sym} -670 270 0 0 {name=p6 sig_type=std_logic lab=vin-
 }
 C {devices/lab_wire.sym} -90 20 0 0 {name=p2 sig_type=std_logic lab=vbias
 }
@@ -189,7 +212,7 @@ device=resistor
 m=1}
 C {devices/capa.sym} -490 -20 0 0 {name=C1
 m=1
-value=1p
+value=5p
 footprint=1206
 device="ceramic capacitor"}
 C {devices/res.sym} -550 100 3 0 {name=R2
@@ -199,7 +222,7 @@ device=resistor
 m=1}
 C {devices/capa.sym} -490 60 2 0 {name=C2
 m=1
-value=1p
+value=5p
 footprint=1206
 device="ceramic capacitor"}
 C {devices/gnd.sym} -450 20 3 0 {name=l6 lab=GND}
@@ -211,13 +234,15 @@ C {devices/lab_wire.sym} -90 -20 0 0 {name=p10 sig_type=std_logic lab=vin+_bad
 }
 C {devices/lab_wire.sym} -90 0 0 0 {name=p11 sig_type=std_logic lab=vin-_bad
 }
-C {devices/simulator_commands_shown.sym} 340 -290 0 0 {name=COMMANDS
+C {devices/simulator_commands_shown.sym} 460 -680 0 0 {name=COMMANDS
 simulator=ngspice
 only_toplevel=false 
 value="
 *.lib /home/ttuser/pdk/sky130A/libs.tech/ngspice/sky130.lib.spice tt
 .options method=gear reltol=0.001 abstol=1e-12
 *.options savecurrents
+
+.param c0=10
 
 .control
 save all
@@ -226,11 +251,31 @@ set appendwrite
 op
 write CTLE_testbench1.raw
 
-tran 10p 20n
+tran 10p 30n
 write CTLE_testbench1.raw
 
 ac dec 20 1 1e11
 write CTLE_testbench1.raw
+plot db(v(vout1+))
+plot db(v(vin+_bad)) db(v(vout+)/v(vin+_bad)) db(v(vout+))
+plot db(v(vin-_bad)) db(v(vout-)/v(vin-_bad)) db(v(vout-))
+
+*foreach val 0.7 0.8 0.9 1 1.1 1.2 1.3
+
+*alterparam c0 = $val
+*reset
+*alter v5 = $val
+
+*tran 10p 20n
+*ac dec 20 1 1e11
+*write CTLE_testbench1.raw
+
+*end
+
+*plot tran1.v(vout+) tran2.v(vout+) tran3.v(vout+) tran4.v(vout+) tran5.v(vout+) tran6.v(vout+) tran7.v(vout+)
+*plot tran1.v(vout-) tran2.v(vout-) tran3.v(vout-) tran4.v(vout-) tran5.v(vout-) tran6.v(vout-) tran7.v(vout-)
+*plot db(v(vin+_bad)) db(ac1.v(vout1+)) db(ac2.v(vout1+)) db(ac3.v(vout1+)) db(ac4.v(vout1+)) db(ac5.v(vout1+)) db(ac6.v(vout1+)) db(ac7.v(vout1+))
+*plot db(v(vin-_bad)) db(ac1.v(vout+)) db(ac2.v(vout+)) db(ac3.v(vout+))  db(ac4.v(vout+)) db(ac5.v(vout+)) db(ac6.v(vout+)) db(ac7.v(vout+))
 
 .endc
 "}
@@ -265,12 +310,12 @@ C {devices/lab_wire.sym} 240 700 2 0 {name=p19 sig_type=std_logic lab=vout1+
 }
 C {devices/lab_wire.sym} 240 720 2 0 {name=p20 sig_type=std_logic lab=vout1-
 }
-C {devices/vsource.sym} -610 660 0 0 {name=V8 value="0.9 AC 0.9" savecurrent=false
+C {devices/vsource.sym} -610 660 0 0 {name=V8 value="0.9 AC 1" savecurrent=false
 lab=vin1-}
 C {devices/lab_wire.sym} -610 630 0 0 {name=p21 sig_type=std_logic lab=vin1+
 
 }
-C {devices/vsource.sym} -460 660 0 0 {name=V9 value="0.9 AC 0.9 180" savecurrent=false
+C {devices/vsource.sym} -460 660 0 0 {name=V9 value="0.9 AC 1 180" savecurrent=false
 lab=vin1-}
 C {devices/lab_wire.sym} -460 630 0 0 {name=p22 sig_type=std_logic lab=vin1-
 }
@@ -309,4 +354,8 @@ C {devices/lab_wire.sym} -120 700 0 0 {name=p23 sig_type=std_logic lab=vin1+
 
 }
 C {devices/lab_wire.sym} -120 720 0 0 {name=p24 sig_type=std_logic lab=vin1-
+}
+C {devices/launcher.sym} -200 530 0 0 {name=h1
+descr="Annotate OP" 
+tclcommand="set show_hidden_texts 1; xschem annotate_op"
 }
